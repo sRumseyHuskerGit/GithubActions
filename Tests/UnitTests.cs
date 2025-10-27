@@ -26,4 +26,91 @@ public class Addition
 		Assert.ThrowsException<ArgumentNullException>(() => Program.Add(null, "1"));
 		Assert.ThrowsException<ArgumentNullException>(() => Program.Add(null, null));
 	}
+
+	[TestMethod]
+	public void Subtract_Rumsey()
+	{
+		//Valid tests
+		Assert.AreEqual(3, Program.Subtract("5", "2"));
+		Assert.AreEqual(-5, Program.Subtract("0", "5"));
+		Assert.AreEqual(12, Program.Subtract("19", "7"));
+
+		//Invalid tests
+		Assert.ThrowsException<FormatException>(() => Program.Subtract("1", "a"));
+		Assert.ThrowsException<FormatException>(() => Program.Subtract("a", "5"));
+		Assert.ThrowsException<FormatException>(() => Program.Subtract("b", "a"));
+
+		//Null tests
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Subtract("1", null));
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Subtract(null, "1"));
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Subtract(null, null));
+	}
+
+	[TestMethod]
+	public void Multiply_Rumsey()
+	{
+		//Base tests
+		Assert.AreEqual(10, Program.Multiply("5", "2"));
+		Assert.AreEqual(0, Program.Multiply("0", "5"));
+		Assert.AreEqual(63, Program.Multiply("9", "7"));
+
+
+		//Invalid tests
+		Assert.ThrowsException<FormatException>(() => Program.Multiply("1", "a"));
+		Assert.ThrowsException<FormatException>(() => Program.Multiply("a", "5"));
+		Assert.ThrowsException<FormatException>(() => Program.Multiply("b", "a"));
+
+		//Null tests
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply("1", null));
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, "1"));
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Multiply(null, null));
+	}
+	
+	[TestMethod]
+	public void Divide_Rumsey()
+	{
+		//Base tests
+		Assert.AreEqual(5, Program.Divide("10", "2"));
+		Assert.AreEqual(0, Program.Divide("0", "5"));
+		Assert.AreEqual(12, Program.Divide("48", "4"));
+
+		//Invalid tests
+		Assert.ThrowsException<FormatException>(() => Program.Divide("1", "a"));
+		Assert.ThrowsException<FormatException>(() => Program.Divide("a", "5"));
+		Assert.ThrowsException<FormatException>(() => Program.Divide("b", "a"));
+
+		//Additional Test: Cannot divide by 0!
+		Assert.ThrowsException<FormatException>(() => Program.Divide("10", "0"));
+
+		//Null tests
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Divide("1", null));
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, "1"));
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Divide(null, null));
+	}
+
+	[TestMethod]
+	public void Power_Rumsey()
+	{
+		//Base tests	
+		Assert.AreEqual(25, Program.Power("5", "2"));
+		Assert.AreEqual(0, Program.Power("0", "5"));
+		Assert.AreEqual(12, Program.Power("2", "4"));
+
+		//Invalid tests
+		Assert.ThrowsException<FormatException>(() => Program.Power("1", "a"));
+		Assert.ThrowsException<FormatException>(() => Program.Power("a", "5"));
+		Assert.ThrowsException<FormatException>(() => Program.Power("b", "a"));
+
+		//Null tests
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Power("1", null));
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Power(null, "1"));
+		Assert.ThrowsException<ArgumentNullException>(() => Program.Power(null, null));
+	}
+
+
+
+
+
+
+
 }
