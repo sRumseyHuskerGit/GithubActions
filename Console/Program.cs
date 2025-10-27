@@ -80,12 +80,18 @@ public class Program
 
 	public static double Divide(string x, string y)
 	{
-		return double.Parse(x) / double.Parse(y);
+		if ((double.Parse(y) > 0) || (double.Parse(y) < 0))
+		{
+			return double.Parse(x) / double.Parse(y);
+		} else
+        {
+			throw new FormatException();
+        }
 	}
 
 	// Implement this method following a similar pattern as above
 	public static double Power(string x, string y)
 	{
-		return 0.0;
+		return Math.Pow(double.Parse(x), double.Parse(y));
 	}
 }
